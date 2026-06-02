@@ -42,7 +42,15 @@ export function TrainersSection() {
       .select("*")
       .eq("is_active", true)
       .then(({ data }) => {
-        if (data && data.length > 0) setTrainers(data);
+        if (data && data.length > 0) {
+          setTrainers(data.map((t) => ({
+            id: t.id,
+            name: t.name,
+            bio: t.bio ?? "",
+            photo_url: t.photo_url ?? "",
+            specialty: t.specialty ?? "",
+          })));
+        }
       });
   }, []);
 

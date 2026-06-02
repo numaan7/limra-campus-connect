@@ -38,7 +38,14 @@ export function TestimonialsSection() {
       .select("*")
       .eq("is_approved", true)
       .then(({ data }) => {
-        if (data && data.length > 0) setTestimonials(data);
+        if (data && data.length > 0) {
+          setTestimonials(data.map((t) => ({
+            id: t.id,
+            name: t.name,
+            text: t.text,
+            rating: t.rating ?? 5,
+          })));
+        }
       });
   }, []);
 

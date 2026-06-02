@@ -63,7 +63,16 @@ export function CoursesSection() {
       .eq("is_active", true)
       .then(({ data }) => {
         if (data && data.length > 0) {
-          setCourses(data.map((c) => ({ ...c, image_url: defaultCourses.find((d) => d.category === c.category)?.image_url || mehndiImg })));
+          const mapped = data.map((c) => ({
+            id: c.id,
+            title: c.title,
+            description: c.description ?? "",
+            duration: c.duration ?? "",
+            price: c.price ?? "",
+            category: c.category ?? "",
+            image_url: defaultCourses.find((d) => d.category === c.category)?.image_url || mehndiImg,
+          }));
+          setCourses(mapped);
         }
       });
   }, []);
