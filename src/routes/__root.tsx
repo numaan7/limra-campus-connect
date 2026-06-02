@@ -11,10 +11,6 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-import { AuthProvider } from "../lib/auth-context";
-import { Navbar } from "../components/limra/navbar";
-import { Footer } from "../components/limra/footer";
-import { WhatsAppButton } from "../components/limra/whatsapp-button";
 
 function NotFoundComponent() {
   return (
@@ -81,21 +77,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Limra Academy - Learn Stitching, Mehndi, Makeup & Quran" },
-      { name: "description", content: "Limra Academy offers ladies-only courses in Stitching, Mehndi, Makeup, and Quran learning. Join our supportive community of women learners." },
-      { name: "author", content: "Limra Academy" },
-      { property: "og:title", content: "Limra Academy - Learn Beautiful Skills" },
-      { property: "og:description", content: "Join Limra Academy for Stitching, Mehndi, Makeup & Quran courses for ladies." },
+      { title: "Lovable App" },
+      { name: "description", content: "Limra Bloom is a website for local courses, offering enrollment, announcements, and trainer management." },
+      { name: "author", content: "Lovable" },
+      { property: "og:title", content: "Lovable App" },
+      { property: "og:description", content: "Limra Bloom is a website for local courses, offering enrollment, announcements, and trainer management." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
-      { name: "theme-color", content: "#f4a8c5" },
+      { name: "twitter:site", content: "@Lovable" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "twitter:description", content: "Limra Bloom is a website for local courses, offering enrollment, announcements, and trainer management." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/681359df-35aa-481a-abd4-9f3c560658b6/id-preview-98d97a40--e47357d8-9ac2-4cde-824a-9a56c29bacda.lovable.app-1780392186497.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/681359df-35aa-481a-abd4-9f3c560658b6/id-preview-98d97a40--e47357d8-9ac2-4cde-824a-9a56c29bacda.lovable.app-1780392186497.png" },
     ],
     links: [
-      { rel: "stylesheet", href: appCss },
-      { rel: "preconnect", href: "https://fonts.googleapis.com" },
-      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Nunito:wght@400;500;600;700&display=swap" },
-      { rel: "manifest", href: "/manifest.json" },
+      {
+        rel: "stylesheet",
+        href: appCss,
+      },
     ],
   }),
   shellComponent: RootShell,
@@ -122,17 +121,9 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
 
   return (
-    <AuthProvider>
-      <QueryClientProvider client={queryClient}>
-        <div className="min-h-screen flex flex-col">
-          <Navbar />
-          <main className="flex-1">
-            <Outlet />
-          </main>
-          <Footer />
-          <WhatsAppButton />
-        </div>
-      </QueryClientProvider>
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+      <Outlet />
+    </QueryClientProvider>
   );
 }
