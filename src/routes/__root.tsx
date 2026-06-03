@@ -14,7 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { AuthProvider } from "@/lib/auth-context";
 import { Navbar } from "@/components/limra/navbar";
 import { Footer } from "@/components/limra/footer";
-import { WhatsappButton } from "@/components/limra/whatsapp-button";
+import { WhatsAppButton } from "@/components/limra/whatsapp-button";
 import { BottomNav } from "@/components/limra/bottom-nav";
 
 function NotFoundComponent() {
@@ -135,7 +135,7 @@ function RootComponent() {
             <Outlet />
           </main>
           <Footer />
-          <WhatsappButton />
+          <WhatsAppButton />
           <BottomNav />
         </div>
       </AuthProvider>
