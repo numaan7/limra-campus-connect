@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,7 +28,7 @@ function LoginPage() {
     setLoading(true);
     setError("");
 
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data: signInData, error } = await supabase.auth.signInWithPassword({
       email,
       password,
     });
@@ -36,6 +36,28 @@ function LoginPage() {
     if (error) {
       setError(error.message);
       setLoading(false);
+      return;
+    }
+
+    // Only admins and trainers are allowed to access the system
+    const uid = signInData.user?.id;
+    if (!uid) {
+      setError("Login failed.");
+      setLoading(false);
+      return;
+    }
+    const { data: roles } = await supabase
+      .from("user_roles")
+      .select("role")
+      .eq("user_id", uid);
+    const allowed = (roles ?? []).some(
+      (r) => r.role === "admin" || r.role === "trainer",
+    );
+    if (!allowed) {
+      await supabase.auth.signOut();
+      setError("Access denied. Only admins and trainers can sign in.");
+      setLoading(false);
+      return;
     }
   }
 
@@ -100,11 +122,8 @@ function LoginPage() {
             </Button>
           </form>
 
-          <div className="mt-6 text-center text-sm text-muted-foreground">
-            Don't have an account?{" "}
-            <Link to="/register" className="text-primary font-medium hover:underline">
-              Register
-            </Link>
+          <div className="mt-6 text-center text-xs text-muted-foreground">
+            Accounts are created by the academy administrator.
           </div>
         </div>
       </div>

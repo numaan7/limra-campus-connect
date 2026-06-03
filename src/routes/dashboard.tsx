@@ -10,6 +10,8 @@ import {
   Users, UserCheck, BookOpen, Plus, Trash2, ChevronRight,
   LayoutDashboard, GraduationCap, ClipboardList, Settings
 } from "lucide-react";
+import { createTrainerAccount } from "@/lib/admin.functions";
+import { useServerFn } from "@tanstack/react-start";
 
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
@@ -32,6 +34,17 @@ function DashboardPage() {
   const [showAddStudent, setShowAddStudent] = useState(false);
   const [showAttendance, setShowAttendance] = useState(false);
   const [selectedDate, setSelectedDate] = useState(new Date().toISOString().split("T")[0]);
+  const [showCreateAccount, setShowCreateAccount] = useState(false);
+  const [accountForm, setAccountForm] = useState({
+    email: "",
+    password: "",
+    full_name: "",
+    phone: "",
+    role: "trainer" as "trainer" | "admin",
+  });
+  const [accountMsg, setAccountMsg] = useState<{ type: "ok" | "err"; text: string } | null>(null);
+  const [creating, setCreating] = useState(false);
+  const createTrainerFn = useServerFn(createTrainerAccount);
 
   const [newStudent, setNewStudent] = useState({
     full_name: "",
@@ -101,6 +114,22 @@ function DashboardPage() {
   async function updateApplicationStatus(id: string, status: string) {
     await supabase.from("applications").update({ status }).eq("id", id);
     loadData();
+  }
+
+  async function handleCreateAccount(e: React.FormEvent) {
+    e.preventDefault();
+    setCreating(true);
+    setAccountMsg(null);
+    try {
+      await createTrainerFn({ data: accountForm });
+      setAccountMsg({ type: "ok", text: `${accountForm.role} account created.` });
+      setAccountForm({ email: "", password: "", full_name: "", phone: "", role: "trainer" });
+      setShowCreateAccount(false);
+    } catch (err: any) {
+      setAccountMsg({ type: "err", text: err?.message ?? "Failed to create account." });
+    } finally {
+      setCreating(false);
+    }
   }
 
   function getAttendanceStatus(studentId: string) {
@@ -367,7 +396,61 @@ function DashboardPage() {
       {/* Trainers Tab (Admin only) */}
       {activeTab === "trainers" && isAdmin && (
         <div className="space-y-6">
-          <h2 className="text-xl font-bold">Trainers</h2>
+          <div className="flex items-center justify-between">
+            <h2 className="text-xl font-bold">Trainers & Accounts</h2>
+            <Button onClick={() => setShowCreateAccount(!showCreateAccount)} className="rounded-full glow-btn">
+              <Plus className="mr-2 h-4 w-4" />
+              Create Account
+            </Button>
+          </div>
+
+          {accountMsg && (
+            <div className={`rounded-lg p-3 text-sm ${accountMsg.type === "ok" ? "bg-green-100 text-green-700" : "bg-destructive/10 text-destructive"}`}>
+              {accountMsg.text}
+            </div>
+          )}
+
+          {showCreateAccount && (
+            <form onSubmit={handleCreateAccount} className="soft-card rounded-2xl p-6 space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Create a login for a trainer or another admin. The account is active immediately — no email verification required.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <Label>Full Name *</Label>
+                  <Input value={accountForm.full_name} onChange={(e) => setAccountForm({ ...accountForm, full_name: e.target.value })} required />
+                </div>
+                <div>
+                  <Label>Phone</Label>
+                  <Input value={accountForm.phone} onChange={(e) => setAccountForm({ ...accountForm, phone: e.target.value })} />
+                </div>
+                <div>
+                  <Label>Email *</Label>
+                  <Input type="email" value={accountForm.email} onChange={(e) => setAccountForm({ ...accountForm, email: e.target.value })} required />
+                </div>
+                <div>
+                  <Label>Password * (min 6 chars)</Label>
+                  <Input type="text" value={accountForm.password} onChange={(e) => setAccountForm({ ...accountForm, password: e.target.value })} required minLength={6} />
+                </div>
+                <div>
+                  <Label>Role *</Label>
+                  <Select value={accountForm.role} onValueChange={(v: "trainer" | "admin") => setAccountForm({ ...accountForm, role: v })}>
+                    <SelectTrigger>
+                      <SelectValue />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="trainer">Trainer</SelectItem>
+                      <SelectItem value="admin">Admin</SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+              </div>
+              <Button type="submit" disabled={creating} className="rounded-full">
+                {creating ? "Creating…" : "Create Account"}
+              </Button>
+            </form>
+          )}
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {trainersList.map((t) => (
               <div key={t.id} className="soft-card rounded-2xl p-5">
