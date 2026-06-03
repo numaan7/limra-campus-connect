@@ -11,6 +11,11 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { reportLovableError } from "../lib/lovable-error-reporting";
+import { AuthProvider } from "@/lib/auth-context";
+import { Navbar } from "@/components/limra/navbar";
+import { Footer } from "@/components/limra/footer";
+import { WhatsAppButton } from "@/components/limra/whatsapp-button";
+import { BottomNav } from "@/components/limra/bottom-nav";
 
 function NotFoundComponent() {
   return (
@@ -122,8 +127,18 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <AuthProvider>
+        <div className="flex min-h-screen flex-col">
+          <Navbar />
+          <main className="flex-1 pb-20 md:pb-0">
+            {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+            <Outlet />
+          </main>
+          <Footer />
+          <WhatsAppButton />
+          <BottomNav />
+        </div>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }
