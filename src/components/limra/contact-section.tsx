@@ -1,34 +1,64 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Send, CheckCircle, MapPin, Phone, Mail, Clock } from "lucide-react";
 
 export function ContactSection() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [courses, setCourses] = useState<{ id: string; title: string }[]>([]);
+  const [selectedCourses, setSelectedCourses] = useState<string[]>([]);
+  const [courseError, setCourseError] = useState("");
   const [formData, setFormData] = useState({
     full_name: "",
     email: "",
     phone: "",
-    course_id: "",
     message: "",
   });
+
+  useEffect(() => {
+    supabase
+      .from("courses")
+      .select("id, title")
+      .eq("is_active", true)
+      .then(({ data }) => setCourses(data ?? []));
+  }, []);
+
+  function toggleCourse(id: string) {
+    setSelectedCourses((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id],
+    );
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
     if (!formData.full_name || !formData.phone) return;
+    if (selectedCourses.length < 1) {
+      setCourseError("Please select at least one course.");
+      return;
+    }
+    setCourseError("");
     setLoading(true);
-    await supabase.from("applications").insert({
-      full_name: formData.full_name,
-      email: formData.email || null,
-      phone: formData.phone,
-      course_id: formData.course_id || null,
-      message: formData.message || null,
-    });
+    const { data: app } = await supabase
+      .from("applications")
+      .insert({
+        full_name: formData.full_name,
+        email: formData.email || null,
+        phone: formData.phone,
+        course_id: selectedCourses[0],
+        message: formData.message || null,
+      })
+      .select("id")
+      .single();
+    if (app?.id) {
+      await supabase
+        .from("application_courses")
+        .insert(selectedCourses.map((cid) => ({ application_id: app.id, course_id: cid })));
+    }
     setLoading(false);
     setSubmitted(true);
   }
@@ -94,18 +124,19 @@ export function ContactSection() {
                   </div>
                 </div>
                 <div>
-                  <Label htmlFor="course">Interested Course</Label>
-                  <Select value={formData.course_id} onValueChange={(v) => setFormData({ ...formData, course_id: v })}>
-                    <SelectTrigger className="mt-1.5">
-                      <SelectValue placeholder="Select a course" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="mehndi">Mehndi Art</SelectItem>
-                      <SelectItem value="stitching">Stitching & Tailoring</SelectItem>
-                      <SelectItem value="makeup">Makeup Artistry</SelectItem>
-                      <SelectItem value="quran">Quran Learning</SelectItem>
-                    </SelectContent>
-                  </Select>
+                  <Label>Interested Courses * (select at least one)</Label>
+                  <div className="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {courses.map((c) => (
+                      <label key={c.id} className="flex items-center gap-2 rounded-lg border border-border p-2 cursor-pointer hover:bg-muted/40">
+                        <Checkbox
+                          checked={selectedCourses.includes(c.id)}
+                          onCheckedChange={() => toggleCourse(c.id)}
+                        />
+                        <span className="text-sm">{c.title}</span>
+                      </label>
+                    ))}
+                  </div>
+                  {courseError && <p className="text-xs text-destructive mt-1">{courseError}</p>}
                 </div>
                 <div>
                   <Label htmlFor="message">Message (optional)</Label>
