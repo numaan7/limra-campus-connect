@@ -22,7 +22,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
           <Link to="/" className="flex items-center gap-2">
-            <AutoAwesomeRoundedIcon className="h-6 w-6 text-primary fill-primary" />
+            <AutoAwesomeRoundedIcon sx={{ fontSize: 24 }} className=" text-primary fill-primary" />
             <span className="text-xl font-bold tracking-tight" style={{ fontFamily: "'Playfair Display', serif" }}>
               Limra
             </span>

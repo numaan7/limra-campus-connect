@@ -68,7 +68,7 @@ function LoginPage() {
         <div className="soft-card rounded-2xl p-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-              <AutoAwesomeRoundedIcon className="h-6 w-6 text-primary fill-primary" />
+              <AutoAwesomeRoundedIcon sx={{ fontSize: 24 }} className=" text-primary fill-primary" />
             </div>
             <h1 className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
               Welcome Back

@@ -9,7 +9,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <AutoAwesomeRoundedIcon className="h-5 w-5 text-primary fill-primary" />
+              <AutoAwesomeRoundedIcon sx={{ fontSize: 20 }} className=" text-primary fill-primary" />
               <span className="text-lg font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
                 Limra Academy
               </span>
@@ -62,7 +62,7 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-border text-center">
           <p className="text-xs text-muted-foreground">
-            Made with <AutoAwesomeRoundedIcon className="inline h-3 w-3 text-primary fill-primary" /> for Limra Academy
+            Made with <AutoAwesomeRoundedIcon sx={{ fontSize: 12 }} className="inline  text-primary fill-primary" /> for Limra Academy
           </p>
         </div>
       </div>
