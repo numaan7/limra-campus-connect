@@ -7,28 +7,24 @@ const defaultTrainers = [
     id: "1",
     name: "Ayesha Begum",
     bio: "Expert in bridal mehndi and traditional henna art with 10+ years of experience.",
-    photo_url: "",
     specialty: "Mehndi Art",
   },
   {
     id: "2",
     name: "Fatima Khan",
     bio: "Professional tailor and embroidery specialist, teaching stitching for over 8 years.",
-    photo_url: "",
     specialty: "Stitching & Tailoring",
   },
   {
     id: "3",
     name: "Zara Ali",
     bio: "Certified makeup artist specializing in bridal, editorial, and natural beauty looks.",
-    photo_url: "",
     specialty: "Makeup Artistry",
   },
   {
     id: "4",
     name: "Hafiza Noor",
     bio: "Qariya and Islamic studies teacher with Ijazah in Tajweed and Quran memorization.",
-    photo_url: "",
     specialty: "Quran & Tajweed",
   },
 ];
@@ -37,21 +33,32 @@ export function TrainersSection() {
   const [trainers, setTrainers] = useState(defaultTrainers);
 
   useEffect(() => {
-    supabase
-      .from("trainers")
-      .select("*")
-      .eq("is_active", true)
-      .then(({ data }) => {
-        if (data && data.length > 0) {
-          setTrainers(data.map((t) => ({
-            id: t.id,
-            name: t.name,
-            bio: t.bio ?? "",
-            photo_url: t.photo_url ?? "",
-            specialty: t.specialty ?? "",
-          })));
-        }
-      });
+    (async () => {
+      const { data } = await supabase.from("trainers").select("*").eq("is_active", true);
+      if (data && data.length > 0) {
+        setTrainers(data.map((t) => ({
+          id: t.id,
+          name: t.name,
+          bio: t.bio ?? "",
+          specialty: t.specialty ?? "",
+        })));
+        return;
+      }
+
+      try {
+        await supabase.from("trainers").insert(
+          defaultTrainers.map((trainer) => ({
+            name: trainer.name,
+            bio: trainer.bio,
+            specialty: trainer.specialty,
+            is_active: true,
+          })),
+        );
+      } catch {
+        // Keep rendering the built-in defaults if inserts are blocked by permissions.
+      }
+      setTrainers(defaultTrainers);
+    })();
   }, []);
 
   return (

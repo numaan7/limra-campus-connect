@@ -165,21 +165,21 @@ export function ContactSection() {
                   <MapPin className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium">Address</p>
-                    <p className="text-sm text-muted-foreground">Local Market Area, Near Masjid, Your City</p>
+                    <p className="text-sm text-muted-foreground">Near Malapally Masjid, Nizamabad Telangana</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Phone className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium">Phone</p>
-                    <a href="tel:+919014759463" className="text-sm text-muted-foreground hover:text-primary">+91 90147 59463</a>
+                    <a href="tel:+919963860432" className="text-sm text-muted-foreground hover:text-primary">+91 99638 60432</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
                   <Mail className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="font-medium">Email</p>
-                    <a href="mailto:limraacademy@gmail.com" className="text-sm text-muted-foreground hover:text-primary">limraacademy@gmail.com</a>
+                    <a href="mailto:support@limra.co.in" className="text-sm text-muted-foreground hover:text-primary">support@limra.co.in</a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">
@@ -195,7 +195,7 @@ export function ContactSection() {
             <div className="soft-card rounded-2xl overflow-hidden h-64">
               <iframe
                 title="Limra Location"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.123!2d77.1234!3d28.5678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjjCsDM0JzA0LjEiTiA3N8KwMDcnMjQuMiJF!5e0!3m2!1sen!2sin!4v1234567890"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d891.4960121105552!2d78.08173198903627!3d18.67182026949203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcddb197dbea06d%3A0x699c3b9c7017d590!2s9-18-223%2C%20Mujahed%20Nagar%2C%20Nizamabad%2C%20Telangana%20503001!5e0!3m2!1sen!2sin!4v1780590597316!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

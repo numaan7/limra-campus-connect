@@ -11,7 +11,7 @@ export function Footer() {
             <div className="flex items-center gap-2 mb-4">
               <AutoAwesomeRoundedIcon sx={{ fontSize: 20 }} className=" text-primary fill-primary" />
               <span className="text-lg font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
-                Limra Academy
+                Limra Courses
               </span>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
@@ -44,17 +44,17 @@ export function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">Contact</h4>
             <div className="space-y-3">
-              <a href="tel:+919014759463" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="tel:+919963860432" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Phone className="h-4 w-4" />
-                +91 90147 59463
+                +91 99638 60432
               </a>
-              <a href="mailto:limraacademy@gmail.com" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
+              <a href="mailto:support@limra.co.in" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors">
                 <Mail className="h-4 w-4" />
-                limraacademy@gmail.com
+                support@limra.co.in
               </a>
               <p className="flex items-center gap-2 text-sm text-muted-foreground">
                 <MapPin className="h-4 w-4" />
-                Local Area, Your City
+                Near Malapally Masjid, Nizamabad Telangana
               </p>
             </div>
           </div>
@@ -62,7 +62,7 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-border text-center">
           <p className="text-xs text-muted-foreground">
-            Made with <AutoAwesomeRoundedIcon sx={{ fontSize: 12 }} className="inline  text-primary fill-primary" /> for Limra Academy
+            Made with <AutoAwesomeRoundedIcon sx={{ fontSize: 12 }} className="inline  text-primary fill-primary" /> for Limra Courses
           </p>
         </div>
       </div>

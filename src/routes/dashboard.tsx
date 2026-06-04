@@ -18,18 +18,18 @@ import { useServerFn } from "@tanstack/react-start";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Dashboard - Limra Academy" },
-      { name: "description", content: "Admin and Trainer Dashboard for Limra Academy." },
+      { title: "Dashboard - Limra Courses" },
+      { name: "description", content: "Admin and Trainer Dashboard for Limra Courses." },
     ],
   }),
   component: DashboardPage,
 });
 
 function emptyCourse() {
-  return { id: "", title: "", description: "", duration: "", price: "", category: "", is_active: true };
+  return { id: "", title: "", description: "", duration: "", price: "", category: "", image_url: "", is_active: true };
 }
 function emptyTrainer() {
-  return { id: "", name: "", specialty: "", bio: "", photo_url: "", is_active: true };
+  return { id: "", name: "", specialty: "", bio: "", is_active: true };
 }
 function emptyAnnouncement() {
   return { id: "", title: "", content: "", priority: 0, is_active: true };
@@ -187,6 +187,7 @@ function DashboardPage() {
       description: courseForm.description || null,
       duration: courseForm.duration || null,
       price: courseForm.price || null,
+      image_url: courseForm.image_url || null,
       category: courseForm.category || null,
       is_active: courseForm.is_active,
     };
@@ -211,7 +212,6 @@ function DashboardPage() {
       name: trainerForm.name,
       specialty: trainerForm.specialty || null,
       bio: trainerForm.bio || null,
-      photo_url: trainerForm.photo_url || null,
       is_active: trainerForm.is_active,
     };
     if (trainerForm.id) {
@@ -509,7 +509,6 @@ function DashboardPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <Input placeholder="Name *" value={trainerForm.name} onChange={(e) => setTrainerForm({ ...trainerForm, name: e.target.value })} required />
                 <Input placeholder="Specialty" value={trainerForm.specialty} onChange={(e) => setTrainerForm({ ...trainerForm, specialty: e.target.value })} />
-                <Input placeholder="Photo URL" value={trainerForm.photo_url} onChange={(e) => setTrainerForm({ ...trainerForm, photo_url: e.target.value })} />
                 <label className="flex items-center gap-2 text-sm"><Checkbox checked={trainerForm.is_active} onCheckedChange={(v) => setTrainerForm({ ...trainerForm, is_active: !!v })} />Active</label>
               </div>
               <Textarea placeholder="Bio" value={trainerForm.bio} onChange={(e) => setTrainerForm({ ...trainerForm, bio: e.target.value })} />
@@ -525,7 +524,7 @@ function DashboardPage() {
                   <p className="text-sm text-primary font-medium">{t.specialty}</p>
                   <p className="text-sm text-muted-foreground mt-2">{t.bio}</p>
                   <div className="flex gap-2 mt-3">
-                    <button onClick={() => setTrainerForm({ id: t.id, name: t.name, specialty: t.specialty || "", bio: t.bio || "", photo_url: t.photo_url || "", is_active: t.is_active })} className="text-xs text-primary"><Pencil className="h-3.5 w-3.5 inline" /> Edit</button>
+                      <button onClick={() => setTrainerForm({ id: t.id, name: t.name, specialty: t.specialty || "", bio: t.bio || "", is_active: t.is_active })} className="text-xs text-primary"><Pencil className="h-3.5 w-3.5 inline" /> Edit</button>
                     <button onClick={() => deleteTrainer(t.id)} className="text-xs text-destructive"><Trash2 className="h-3.5 w-3.5 inline" /> Delete</button>
                   </div>
                 </div>
@@ -545,6 +544,22 @@ function DashboardPage() {
               <Input placeholder="Category (mehndi, stitching, makeup, quran)" value={courseForm.category} onChange={(e) => setCourseForm({ ...courseForm, category: e.target.value })} />
               <Input placeholder="Duration (e.g. 6 Weeks)" value={courseForm.duration} onChange={(e) => setCourseForm({ ...courseForm, duration: e.target.value })} />
               <Input placeholder="Price (e.g. ₹ 2,500)" value={courseForm.price} onChange={(e) => setCourseForm({ ...courseForm, price: e.target.value })} />
+                <div>
+                  <Label className="text-sm">Image</Label>
+                  <input type="file" accept="image/*" onChange={async (e) => {
+                    const file = e.target.files?.[0];
+                    if (!file) return;
+                    try {
+                      const path = `courses/${Date.now()}_${file.name}`;
+                      const { error: upErr } = await supabase.storage.from('course-images').upload(path, file, { cacheControl: '3600', upsert: false });
+                      if (upErr) throw upErr;
+                      const { data: urlData } = supabase.storage.from('course-images').getPublicUrl(path);
+                      setCourseForm((s) => ({ ...s, image_url: urlData.publicUrl }));
+                    } catch (err) {
+                      alert('Image upload failed');
+                    }
+                  }} />
+                </div>
             </div>
             <Textarea placeholder="Description" value={courseForm.description} onChange={(e) => setCourseForm({ ...courseForm, description: e.target.value })} />
             <label className="flex items-center gap-2 text-sm"><Checkbox checked={courseForm.is_active} onCheckedChange={(v) => setCourseForm({ ...courseForm, is_active: !!v })} />Active</label>
@@ -561,7 +576,7 @@ function DashboardPage() {
                 <p className="text-sm text-muted-foreground mt-2">{c.description}</p>
                 <div className="flex gap-4 mt-3 text-sm text-muted-foreground"><span>{c.duration}</span><span>{c.price}</span></div>
                 <div className="flex gap-2 mt-3">
-                  <button onClick={() => setCourseForm({ id: c.id, title: c.title, description: c.description || "", duration: c.duration || "", price: c.price || "", category: c.category || "", is_active: c.is_active })} className="text-xs text-primary"><Pencil className="h-3.5 w-3.5 inline" /> Edit</button>
+                  <button onClick={() => setCourseForm({ id: c.id, title: c.title, description: c.description || "", duration: c.duration || "", price: c.price || "", category: c.category || "", image_url: c.image_url || "", is_active: c.is_active })} className="text-xs text-primary"><Pencil className="h-3.5 w-3.5 inline" /> Edit</button>
                   <button onClick={() => deleteCourse(c.id)} className="text-xs text-destructive"><Trash2 className="h-3.5 w-3.5 inline" /> Delete</button>
                 </div>
               </div>

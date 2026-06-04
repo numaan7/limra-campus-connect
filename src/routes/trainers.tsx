@@ -4,8 +4,8 @@ import { TrainersSection } from "@/components/limra/trainers-section";
 export const Route = createFileRoute("/trainers")({
   head: () => ({
     meta: [
-      { title: "Our Trainers - Limra Academy" },
-      { name: "description", content: "Meet our experienced female trainers at Limra Academy. Expert instructors in Mehndi, Stitching, Makeup, and Quran." },
+      { title: "Our Trainers - Limra Courses" },
+      { name: "description", content: "Meet our experienced female trainers at Limra Courses. Expert instructors in Mehndi, Stitching, Makeup, and Quran." },
     ],
   }),
   component: TrainersPage,

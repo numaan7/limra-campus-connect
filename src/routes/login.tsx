@@ -10,8 +10,8 @@ import { Eye, EyeOff, Loader2 } from "lucide-react";
 export const Route = createFileRoute("/login")({
   head: () => ({
     meta: [
-      { title: "Login - Limra Academy" },
-      { name: "description", content: "Login to your Limra Academy account." },
+      { title: "Login - Limra Courses" },
+      { name: "description", content: "Login to your Limra Courses account." },
     ],
   }),
   component: LoginPage,

@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+Host: https://limra.co.in
+Sitemap: https://limra.co.in/sitemap.xml

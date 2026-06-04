@@ -4,8 +4,8 @@ import { AboutSection } from "@/components/limra/about-section";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About Us - Limra Academy" },
-      { name: "description", content: "Learn about Limra Academy's mission to empower women through creative arts and Quran education." },
+      { title: "About Us - Limra Courses" },
+      { name: "description", content: "Learn about Limra Courses' mission to empower women through creative arts and Quran education." },
     ],
   }),
   component: AboutPage,

@@ -4,8 +4,8 @@ import { ContactSection } from "@/components/limra/contact-section";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: "Contact & Apply - Limra Academy" },
-      { name: "description", content: "Apply for courses at Limra Academy. Contact us for Stitching, Mehndi, Makeup, and Quran learning enrollment." },
+      { title: "Contact & Apply - Limra Courses" },
+      { name: "description", content: "Apply for courses at Limra Courses. Contact us for Stitching, Mehndi, Makeup, and Quran learning enrollment." },
     ],
   }),
   component: ContactPage,

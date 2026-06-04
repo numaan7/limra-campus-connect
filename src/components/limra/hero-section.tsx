@@ -30,7 +30,7 @@ export function HeroSection() {
           >
             Welcome to{" "}
             <span className="text-primary">Limra</span>{" "}
-            Academy
+            Courses
           </h1>
 
           <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">

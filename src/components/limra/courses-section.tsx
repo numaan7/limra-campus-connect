@@ -12,8 +12,8 @@ const defaultCourses = [
     id: "mehndi",
     title: "Mehndi Art",
     description: "Master the ancient art of henna with beautiful patterns, bridal designs, and modern styles.",
-    duration: "6 Weeks",
-    price: "\u20b9 2,500",
+    duration: "4 Weeks",
+    price: "500",
     category: "mehndi",
     image_url: mehndiImg,
   },
@@ -21,8 +21,8 @@ const defaultCourses = [
     id: "stitching",
     title: "Stitching & Tailoring",
     description: "Learn stitching, embroidery, and tailoring techniques to create your own beautiful garments.",
-    duration: "8 Weeks",
-    price: "\u20b9 3,000",
+    duration: "4 Weeks",
+    price: "500",
     category: "stitching",
     image_url: stitchingImg,
   },
@@ -31,7 +31,7 @@ const defaultCourses = [
     title: "Makeup Artistry",
     description: "Professional makeup techniques including bridal, party, and everyday natural looks.",
     duration: "4 Weeks",
-    price: "\u20b9 4,000",
+    price: "500",
     category: "makeup",
     image_url: makeupImg,
   },
@@ -39,8 +39,8 @@ const defaultCourses = [
     id: "quran",
     title: "Quran Learning",
     description: "Learn Quran with proper Tajweed, memorization techniques, and Islamic values for all ages.",
-    duration: "Ongoing",
-    price: "\u20b9 1,500",
+    duration: "4 Weeks",
+    price: "500",
     category: "quran",
     image_url: quranImg,
   },
@@ -57,24 +57,40 @@ export function CoursesSection() {
   const [courses, setCourses] = useState(defaultCourses);
 
   useEffect(() => {
-    supabase
-      .from("courses")
-      .select("*")
-      .eq("is_active", true)
-      .then(({ data }) => {
-        if (data && data.length > 0) {
-          const mapped = data.map((c) => ({
-            id: c.id,
-            title: c.title,
-            description: c.description ?? "",
-            duration: c.duration ?? "",
-            price: c.price ?? "",
-            category: c.category ?? "",
-            image_url: defaultCourses.find((d) => d.category === c.category)?.image_url || mehndiImg,
-          }));
-          setCourses(mapped);
+    (async () => {
+      const { data } = await supabase.from("courses").select("*").eq("is_active", true);
+      if (data && data.length > 0) {
+        const mapped = data.map((c) => ({
+          id: c.id,
+          title: c.title,
+          description: c.description ?? "",
+          // Force homepage display values to keep prices and durations consistent
+          duration: "4 Weeks",
+          price: "500",
+          category: c.category ?? "",
+          image_url: (c.image_url ?? defaultCourses.find((d) => d.category === c.category)?.image_url) || mehndiImg,
+        }));
+        setCourses(mapped);
+      } else {
+        // If no courses in DB, persist the homepage defaults so admin can edit them later.
+        try {
+          await supabase.from("courses").insert(
+            defaultCourses.map((c) => ({
+              title: c.title,
+              description: c.description,
+              duration: "4 Weeks",
+              price: "500",
+              category: c.category,
+              is_active: true,
+              image_url: null,
+            }))
+          );
+        } catch (e) {
+          // ignore insertion errors (e.g., permissions) and just show defaults
         }
-      });
+        setCourses(defaultCourses);
+      }
+    })();
   }, []);
 
   return (
@@ -126,7 +142,7 @@ export function CoursesSection() {
                   </span>
                   <span className="flex items-center gap-1.5 font-semibold text-primary">
                     <IndianRupee className="h-4 w-4" />
-                    {course.price}
+                    {String(course.price ?? "").trim()}
                   </span>
                 </div>
 

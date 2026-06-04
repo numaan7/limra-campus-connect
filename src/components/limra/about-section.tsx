@@ -19,7 +19,7 @@ export function AboutSection() {
               Empowering Women Through <span className="text-primary">Art & Knowledge</span>
             </h2>
             <p className="text-muted-foreground leading-relaxed mb-6">
-              Limra Academy is a local initiative founded with a vision to provide quality skill-based education 
+              Limra Courses is a local initiative founded with a vision to provide quality skill-based education 
               for women and girls in a safe, comfortable, and supportive environment. We believe every woman 
               deserves the opportunity to learn, grow, and become financially independent.
             </p>

@@ -4,8 +4,8 @@ import { CoursesSection } from "@/components/limra/courses-section";
 export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: [
-      { title: "Our Courses - Limra Academy" },
-      { name: "description", content: "Explore our ladies-only courses: Stitching, Mehndi, Makeup Artistry, and Quran Learning at Limra Academy." },
+      { title: "Our Courses - Limra Courses" },
+      { name: "description", content: "Explore our ladies-only courses: Stitching, Mehndi, Makeup Artistry, and Quran Learning at Limra Courses." },
     ],
   }),
   component: CoursesPage,

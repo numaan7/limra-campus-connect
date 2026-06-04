@@ -10,7 +10,7 @@ export function BottomNav() {
 
   const items = [
     { to: "/", label: "Home", icon: Home },
-    { to: "/courses", label: "Courses", icon: BookOpen },
+    { to: "/contact", label: "Apply", icon: BookOpen },
     authedDashboard
       ? { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard }
       : { to: "/login", label: "Login", icon: LogIn },
