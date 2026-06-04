@@ -1,10 +1,11 @@
+import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Heart, Eye, EyeOff, Loader2 } from "lucide-react";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
 
 export const Route = createFileRoute("/login")({
   head: () => ({
@@ -67,7 +68,7 @@ function LoginPage() {
         <div className="soft-card rounded-2xl p-8">
           <div className="text-center mb-8">
             <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/10 mb-4">
-              <Heart className="h-6 w-6 text-primary fill-primary" />
+              <AutoAwesomeRoundedIcon className="h-6 w-6 text-primary fill-primary" />
             </div>
             <h1 className="text-2xl font-bold" style={{ fontFamily: "'Playfair Display', serif" }}>
               Welcome Back
