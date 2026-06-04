@@ -1,4 +1,5 @@
-import { BookOpen, Heart } from "lucide-react";
+import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
+import { BookOpen } from "lucide-react";
 
 const ayats = [
   {
@@ -67,7 +68,7 @@ export function AyatsSection() {
               key={i}
               className="soft-card rounded-2xl p-6 flex items-start gap-4 hover:shadow-lg transition-shadow"
             >
-              <Heart className="h-5 w-5 text-primary flex-shrink-0 mt-1" />
+              <AutoAwesomeRoundedIcon sx={{ fontSize: 20 }} className=" text-primary flex-shrink-0 mt-1" />
               <div>
                 <p className="text-foreground italic mb-2">"{hadith.text}"</p>
                 <p className="text-xs font-semibold text-primary">{hadith.ref}</p>

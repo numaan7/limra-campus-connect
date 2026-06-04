@@ -1,5 +1,6 @@
+import AutoAwesomeRoundedIcon from '@mui/icons-material/AutoAwesomeRounded';
 import { Link } from "@tanstack/react-router";
-import { Heart, Users, BookOpen, Award, ArrowRight } from "lucide-react";
+import { Users, BookOpen, Award, ArrowRight } from "lucide-react";
 
 export function AboutSection() {
   return (
@@ -8,7 +9,7 @@ export function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
-              <Heart className="h-4 w-4 text-primary" />
+              <AutoAwesomeRoundedIcon sx={{ fontSize: 16 }} className=" text-primary" />
               <span className="text-sm font-medium text-primary">About Us</span>
             </div>
             <h2
@@ -32,7 +33,7 @@ export function AboutSection() {
                 { icon: <Users className="h-5 w-5" />, label: "500+", sub: "Students" },
                 { icon: <BookOpen className="h-5 w-5" />, label: "4", sub: "Courses" },
                 { icon: <Award className="h-5 w-5" />, label: "5+", sub: "Years" },
-                { icon: <Heart className="h-5 w-5" />, label: "100%", sub: "Ladies Only" },
+                { icon: <AutoAwesomeRoundedIcon sx={{ fontSize: 20 }} className="" />, label: "100%", sub: "Ladies Only" },
               ].map((stat, i) => (
                 <div key={i} className="soft-card rounded-xl p-4 text-center">
                   <div className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-primary/10 text-primary mb-2">
