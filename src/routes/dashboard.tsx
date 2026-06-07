@@ -490,7 +490,7 @@ function DashboardPage() {
                 <div><Label>Full Name *</Label><Input value={accountForm.full_name} onChange={(e) => setAccountForm({ ...accountForm, full_name: e.target.value })} required /></div>
                 <div><Label>Phone</Label><Input value={accountForm.phone} onChange={(e) => setAccountForm({ ...accountForm, phone: e.target.value })} /></div>
                 <div><Label>Email *</Label><Input type="email" value={accountForm.email} onChange={(e) => setAccountForm({ ...accountForm, email: e.target.value })} required /></div>
-                <div><Label>Password * (min 6)</Label><Input type="text" value={accountForm.password} onChange={(e) => setAccountForm({ ...accountForm, password: e.target.value })} required minLength={6} /></div>
+                <div><Label>Password * (min 6)</Label><Input type="password" autoComplete="new-password" value={accountForm.password} onChange={(e) => setAccountForm({ ...accountForm, password: e.target.value })} required minLength={6} /></div>
                 <div>
                   <Label>Role *</Label>
                   <Select value={accountForm.role} onValueChange={(v: "trainer" | "admin") => setAccountForm({ ...accountForm, role: v })}>
