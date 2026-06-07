@@ -7,6 +7,12 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  // Nitro deploy preset. Defaults to cloudflare-module in the Lovable sandbox.
+  // For Azure App Service (Node), the GitHub Actions workflow sets
+  // NITRO_PRESET=node-server so the build emits .output/server/index.mjs.
+  nitro: {
+    preset: process.env.NITRO_PRESET || "cloudflare-module",
+  },
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
