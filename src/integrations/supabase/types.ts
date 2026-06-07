@@ -345,6 +345,7 @@ export type Database = {
           id: string
           is_active: boolean | null
           name: string
+          photo_url: string | null
           specialty: string | null
         }
         Insert: {
@@ -353,6 +354,7 @@ export type Database = {
           id?: string
           is_active?: boolean | null
           name: string
+          photo_url?: string | null
           specialty?: string | null
         }
         Update: {
@@ -361,6 +363,7 @@ export type Database = {
           id?: string
           is_active?: boolean | null
           name?: string
+          photo_url?: string | null
           specialty?: string | null
         }
         Relationships: []
