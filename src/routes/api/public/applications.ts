@@ -34,6 +34,20 @@ export const Route = createFileRoute("/api/public/applications")({
 
         const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
 
+        // Basic per-phone rate limiting: at most 3 submissions per 10 minutes.
+        const since = new Date(Date.now() - 10 * 60 * 1000).toISOString();
+        const { count: recentCount } = await supabaseAdmin
+          .from("applications")
+          .select("id", { count: "exact", head: true })
+          .eq("phone", data.phone)
+          .gte("created_at", since);
+        if ((recentCount ?? 0) >= 3) {
+          return new Response(
+            JSON.stringify({ error: "Too many submissions. Please try again later." }),
+            { status: 429, headers: { "content-type": "application/json" } },
+          );
+        }
+
         // Verify all course_ids reference active courses to prevent garbage data.
         const { data: validCourses, error: coursesErr } = await supabaseAdmin
           .from("courses")
