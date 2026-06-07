@@ -33,7 +33,7 @@ jobs:
       - name: Prepare deployment package
         run: |
           mkdir -p deploy
-          cp -r .output deploy/.output
+          cp -r dist deploy/dist
           cp package.json deploy/package.json
           cp web.config deploy/web.config || true
 

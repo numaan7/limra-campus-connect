@@ -29,7 +29,8 @@ NITRO_PRESET=node-server npm run build
 npm start            # serves .output/server/index.mjs on PORT (default 3000)
 ```
 
-The build produces a self-contained Node server in `.output/`.
+The build produces a self-contained Node server in `dist/` (entry:
+`dist/server/index.mjs`, static assets in `dist/client/`).
 
 ## 3. Deploy via GitHub Actions
 
