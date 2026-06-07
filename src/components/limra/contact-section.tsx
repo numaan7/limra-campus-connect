@@ -43,24 +43,29 @@ export function ContactSection() {
     }
     setCourseError("");
     setLoading(true);
-    const { data: app } = await supabase
-      .from("applications")
-      .insert({
-        full_name: formData.full_name,
-        email: formData.email || null,
-        phone: formData.phone,
-        course_id: selectedCourses[0],
-        message: formData.message || null,
-      })
-      .select("id")
-      .single();
-    if (app?.id) {
-      await supabase
-        .from("application_courses")
-        .insert(selectedCourses.map((cid) => ({ application_id: app.id, course_id: cid })));
+    try {
+      const res = await fetch("/api/public/applications", {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify({
+          full_name: formData.full_name,
+          email: formData.email || "",
+          phone: formData.phone,
+          message: formData.message || "",
+          course_ids: selectedCourses,
+        }),
+      });
+      if (!res.ok) {
+        setCourseError("Could not submit your application. Please try again.");
+        setLoading(false);
+        return;
+      }
+      setSubmitted(true);
+    } catch {
+      setCourseError("Network error. Please try again.");
+    } finally {
+      setLoading(false);
     }
-    setLoading(false);
-    setSubmitted(true);
   }
 
   return (
