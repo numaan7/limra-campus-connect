@@ -1,4 +1,3 @@
--- Harden students INSERT: trainers can only assign students to themselves; admins can assign anyone.
 DROP POLICY IF EXISTS "Trainers can add students" ON public.students;
 
 CREATE POLICY "Admins can insert any student"
