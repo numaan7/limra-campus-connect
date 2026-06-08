@@ -1,0 +1,71 @@
+/* Limra Courses — design tokens & utilities (light theme) */
+:root {
+  --radius: 1rem;
+  --background: oklch(0.98 0.01 350);
+  --foreground: oklch(0.25 0.05 350);
+  --card: oklch(1 0 0);
+  --primary: oklch(0.72 0.14 350);
+  --primary-foreground: oklch(1 0 0);
+  --muted: oklch(0.95 0.015 350);
+  --muted-foreground: oklch(0.55 0.04 350);
+  --border: oklch(0.9 0.02 350);
+  --destructive: oklch(0.6 0.2 25);
+  --pink-soft: oklch(0.96 0.025 350);
+  --pink-warm: oklch(0.75 0.14 350);
+  --lavender: oklch(0.7 0.1 300);
+  --lavender-soft: oklch(0.92 0.03 300);
+  --cream: oklch(0.97 0.015 80);
+  --gold: oklch(0.78 0.12 85);
+}
+
+* { border-color: var(--border); box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: "Nunito", "DM Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4,h5,h6 { font-family: "Playfair Display","Georgia",serif; }
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+/* Helpers used through arbitrary Tailwind classes via Play CDN config */
+.soft-card {
+  background: oklch(1 0 0);
+  box-shadow: 0 4px 24px oklch(0.72 0.14 350 / 0.08),
+              0 1px 4px oklch(0.72 0.14 350 / 0.04);
+  border: 1px solid oklch(0.9 0.02 350);
+}
+
+@keyframes glow-pulse {
+  0%,100% { box-shadow: 0 0 20px oklch(0.72 0.14 350 / 0.30),
+                        0 0 40px oklch(0.72 0.14 350 / 0.15); }
+  50%     { box-shadow: 0 0 30px oklch(0.72 0.14 350 / 0.50),
+                        0 0 60px oklch(0.72 0.14 350 / 0.25); }
+}
+.glow-btn { animation: glow-pulse 3s ease-in-out infinite; }
+.glow-btn:hover {
+  animation: none;
+  box-shadow: 0 0 30px oklch(0.72 0.14 350 / 0.6),
+              0 0 60px oklch(0.72 0.14 350 / 0.3),
+              0 0 90px oklch(0.72 0.14 350 / 0.15);
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+.marquee-track {
+  display: inline-block;
+  animation: marquee 30s linear infinite;
+}
+
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+.float-animation { animation: float 4s ease-in-out infinite; }
+
+/* Backdrop tweak for sticky navbar */
+.glass { backdrop-filter: blur(14px); background: oklch(0.98 0.01 350 / 0.8); }
+
+/* Bottom nav safe area */
+.safe-bottom { padding-bottom: env(safe-area-inset-bottom); }
