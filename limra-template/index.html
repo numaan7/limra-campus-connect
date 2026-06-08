@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Limra Courses - Learn Stitching, Mehndi, Makeup & Quran</title>
+  <meta name="description" content="Join Limra Courses for ladies-only courses in Stitching, Mehndi, Makeup, and Quran learning." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background:   'var(--background)',
+            foreground:   'var(--foreground)',
+            card:         'var(--card)',
+            primary:      'var(--primary)',
+            'primary-foreground': 'var(--primary-foreground)',
+            muted:        'var(--muted)',
+            'muted-foreground': 'var(--muted-foreground)',
+            border:       'var(--border)',
+            destructive:  'var(--destructive)',
+            'pink-soft':  'var(--pink-soft)',
+            'pink-warm':  'var(--pink-warm)',
+            lavender:     'var(--lavender)',
+            'lavender-soft':'var(--lavender-soft)',
+            cream:        'var(--cream)',
+            gold:         'var(--gold)',
+          },
+          borderRadius: { '2xl':'1rem','3xl':'1.25rem' },
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<nav class="sticky top-0 z-50 glass border-b border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex h-16 items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-2">
+        <svg viewBox="0 0 24 24" class="h-6 w-6" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <span class="text-xl font-bold tracking-tight" style="font-family:'Playfair Display',serif">Limra</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="./index.html"    class="text-sm font-medium text-primary">Home</a>
+        <a href="./courses.html"  class="text-sm font-medium text-muted-foreground hover:text-primary">Courses</a>
+        <a href="./trainers.html" class="text-sm font-medium text-muted-foreground hover:text-primary">Trainers</a>
+        <a href="./about.html"    class="text-sm font-medium text-muted-foreground hover:text-primary">About</a>
+        <a href="./contact.html"  class="text-sm font-medium text-muted-foreground hover:text-primary">Contact</a>
+        <a href="#"               class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md hover:shadow-lg transition-all">Login</a>
+      </div>
+      <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-muted" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="md:hidden hidden border-t border-border glass">
+    <div class="px-4 py-3 space-y-1">
+      <a href="./index.html"    class="block rounded-lg px-3 py-2 text-sm font-medium bg-primary/10 text-primary">Home</a>
+      <a href="./courses.html"  class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Courses</a>
+      <a href="./trainers.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Trainers</a>
+      <a href="./about.html"    class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">About</a>
+      <a href="./contact.html"  class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Contact</a>
+      <a href="#" class="block rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground text-center mt-2">Login</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ ANNOUNCEMENT TICKER ============ -->
+<div class="bg-primary/10 border-b border-primary/20 overflow-hidden">
+  <div class="flex items-center">
+    <div class="flex-shrink-0 px-4 py-2 bg-primary/20 flex items-center gap-2">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 11-5.8-1.6"/></svg>
+      <span class="text-xs font-semibold text-primary uppercase tracking-wider whitespace-nowrap">News</span>
+    </div>
+    <div class="overflow-hidden flex-1 py-2">
+      <div class="marquee-track whitespace-nowrap text-sm text-primary/80">
+        New Batch Starting: New Mehndi &amp; Stitching batches starting this Monday! ✦ Quran Classes: Special Tajweed classes for beginners ✦ Makeup Workshop: Bridal workshop this weekend — Limited seats! &nbsp;&nbsp;&nbsp; New Batch Starting: New Mehndi &amp; Stitching batches starting this Monday! ✦ Quran Classes: Special Tajweed classes for beginners ✦ Makeup Workshop: Bridal workshop this weekend — Limited seats!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="relative overflow-hidden">
+  <div class="absolute inset-0">
+    <img src="./assets/hero-bg.jpg" alt="" class="w-full h-full object-cover opacity-20" />
+    <div class="absolute inset-0" style="background:linear-gradient(to bottom, oklch(0.98 0.01 350 / 0.5), oklch(0.98 0.01 350 / 0.8), var(--background));"></div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-32">
+    <div class="text-center max-w-3xl mx-auto">
+      <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-6">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <span class="text-sm font-medium text-primary">For Girls &amp; Women Only</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight tracking-tight mb-6" style="font-family:'Playfair Display',serif">
+        Welcome to <span class="text-primary">Limra</span> Courses
+      </h1>
+      <p class="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl mx-auto">
+        Learn the beautiful arts of Stitching, Mehndi, Makeup, and Quran in a safe, supportive environment designed exclusively for ladies.
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="./courses.html" class="glow-btn rounded-full px-8 py-4 text-base font-semibold bg-primary text-primary-foreground inline-flex items-center gap-2">
+          Explore Courses
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="./contact.html" class="rounded-full px-8 py-4 text-base font-semibold border border-primary/30 hover:bg-primary/10 inline-flex items-center">Apply Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AYATS ============ -->
+<section class="py-16 md:py-24" style="background: oklch(0.92 0.03 300 / 0.3);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+        <span class="text-sm font-medium text-primary">Daily Inspiration</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight" style="font-family:'Playfair Display',serif">
+        Words of <span class="text-primary">Wisdom</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div class="soft-card rounded-2xl p-6 md:p-8 text-center">
+        <p class="text-2xl md:text-3xl leading-loose mb-4" dir="rtl">وَقُل رَّبِّ زِدْنِي عِلْمًا</p>
+        <p class="text-muted-foreground italic mb-2">"And say: My Lord, increase me in knowledge."</p>
+        <p class="text-xs font-semibold text-primary">Quran 20:114</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 md:p-8 text-center">
+        <p class="text-2xl md:text-3xl leading-loose mb-4" dir="rtl">فَإِنَّ مَعَ الْعُسْرِ يُسْرًا</p>
+        <p class="text-muted-foreground italic mb-2">"Indeed, with hardship [will be] ease."</p>
+        <p class="text-xs font-semibold text-primary">Quran 94:5</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 md:p-8 text-center">
+        <p class="text-2xl md:text-3xl leading-loose mb-4" dir="rtl">رَبِّ اشْرَحْ لِي صَدْرِي</p>
+        <p class="text-muted-foreground italic mb-2">"My Lord, expand for me my chest [with assurance]."</p>
+        <p class="text-xs font-semibold text-primary">Quran 20:25</p>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="soft-card rounded-2xl p-6 flex items-start gap-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5 text-primary mt-1 flex-shrink-0" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <div>
+          <p class="italic mb-2">"Seeking knowledge is an obligation upon every Muslim."</p>
+          <p class="text-xs font-semibold text-primary">Sunan Ibn Majah</p>
+        </div>
+      </div>
+      <div class="soft-card rounded-2xl p-6 flex items-start gap-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5 text-primary mt-1 flex-shrink-0" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <div>
+          <p class="italic mb-2">"The best of you are those who learn the Quran and teach it."</p>
+          <p class="text-xs font-semibold text-primary">Sahih al-Bukhari</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COURSES ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4" style="font-family:'Playfair Display',serif">
+        Our <span class="text-primary">Courses</span>
+      </h2>
+      <p class="text-muted-foreground max-w-2xl mx-auto">Discover your passion and learn beautiful skills in a supportive, ladies-only environment.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <article class="soft-card rounded-2xl overflow-hidden group hover:shadow-xl transition-all">
+        <div class="relative h-48 overflow-hidden">
+          <img src="./assets/course-mehndi.jpg" alt="Mehndi" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-primary">mehndi</span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold mb-2">Mehndi Art</h3>
+          <p class="text-sm text-muted-foreground mb-4">Master the ancient art of henna with beautiful patterns, bridal designs, and modern styles.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-muted-foreground">4 Weeks</span>
+            <span class="text-primary font-semibold">₹500</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="soft-card rounded-2xl overflow-hidden group hover:shadow-xl transition-all">
+        <div class="relative h-48 overflow-hidden">
+          <img src="./assets/course-stitching.jpg" alt="Stitching" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-primary">stitching</span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold mb-2">Stitching &amp; Tailoring</h3>
+          <p class="text-sm text-muted-foreground mb-4">Learn stitching, embroidery, and tailoring techniques to create your own beautiful garments.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-muted-foreground">4 Weeks</span>
+            <span class="text-primary font-semibold">₹500</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="soft-card rounded-2xl overflow-hidden group hover:shadow-xl transition-all">
+        <div class="relative h-48 overflow-hidden">
+          <img src="./assets/course-makeup.jpg" alt="Makeup" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-primary">makeup</span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold mb-2">Makeup Artistry</h3>
+          <p class="text-sm text-muted-foreground mb-4">Professional makeup techniques including bridal, party, and everyday natural looks.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-muted-foreground">4 Weeks</span>
+            <span class="text-primary font-semibold">₹500</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="soft-card rounded-2xl overflow-hidden group hover:shadow-xl transition-all">
+        <div class="relative h-48 overflow-hidden">
+          <img src="./assets/course-quran.jpg" alt="Quran" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+          <span class="absolute top-3 left-3 inline-flex items-center gap-1.5 rounded-full bg-background/90 px-3 py-1 text-xs font-medium text-primary">quran</span>
+        </div>
+        <div class="p-5">
+          <h3 class="text-lg font-bold mb-2">Quran Learning</h3>
+          <p class="text-sm text-muted-foreground mb-4">Learn Quran with proper Tajweed, memorization techniques, and Islamic values for all ages.</p>
+          <div class="flex items-center justify-between text-sm">
+            <span class="text-muted-foreground">4 Weeks</span>
+            <span class="text-primary font-semibold">₹500</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRAINERS ============ -->
+<section class="py-16 md:py-24" style="background: oklch(0.96 0.025 350 / 0.3);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><circle cx="12" cy="8" r="6"/><path d="M15.5 13l1.5 9-5-3-5 3 1.5-9"/></svg>
+        <span class="text-sm font-medium text-primary">Expert Instructors</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4" style="font-family:'Playfair Display',serif">
+        Meet Our <span class="text-primary">Trainers</span>
+      </h2>
+      <p class="text-muted-foreground max-w-2xl mx-auto">Learn from experienced, passionate women dedicated to sharing their skills.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="soft-card rounded-2xl p-6 text-center hover:shadow-xl transition-all">
+        <div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg, oklch(0.72 0.14 350 / 0.2), oklch(0.7 0.1 300 / 0.3));">
+          <span class="text-2xl font-bold text-primary">AB</span>
+        </div>
+        <h3 class="text-lg font-bold mb-1">Ayesha Begum</h3>
+        <p class="text-sm text-primary font-medium mb-3">Mehndi Art</p>
+        <p class="text-sm text-muted-foreground">Expert in bridal mehndi and traditional henna art with 10+ years of experience.</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 text-center hover:shadow-xl transition-all">
+        <div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg, oklch(0.72 0.14 350 / 0.2), oklch(0.7 0.1 300 / 0.3));">
+          <span class="text-2xl font-bold text-primary">FK</span>
+        </div>
+        <h3 class="text-lg font-bold mb-1">Fatima Khan</h3>
+        <p class="text-sm text-primary font-medium mb-3">Stitching &amp; Tailoring</p>
+        <p class="text-sm text-muted-foreground">Professional tailor and embroidery specialist, teaching stitching for over 8 years.</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 text-center hover:shadow-xl transition-all">
+        <div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg, oklch(0.72 0.14 350 / 0.2), oklch(0.7 0.1 300 / 0.3));">
+          <span class="text-2xl font-bold text-primary">ZA</span>
+        </div>
+        <h3 class="text-lg font-bold mb-1">Zara Ali</h3>
+        <p class="text-sm text-primary font-medium mb-3">Makeup Artistry</p>
+        <p class="text-sm text-muted-foreground">Certified makeup artist specializing in bridal, editorial, and natural beauty looks.</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 text-center hover:shadow-xl transition-all">
+        <div class="w-24 h-24 mx-auto mb-4 rounded-full flex items-center justify-center" style="background:linear-gradient(135deg, oklch(0.72 0.14 350 / 0.2), oklch(0.7 0.1 300 / 0.3));">
+          <span class="text-2xl font-bold text-primary">HN</span>
+        </div>
+        <h3 class="text-lg font-bold mb-1">Hafiza Noor</h3>
+        <p class="text-sm text-primary font-medium mb-3">Quran &amp; Tajweed</p>
+        <p class="text-sm text-muted-foreground">Qariya and Islamic studies teacher with Ijazah in Tajweed and Quran memorization.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M3 21c3-2 4-5 4-9V5h6v8h-4M14 21c3-2 4-5 4-9V5h6v8h-4"/></svg>
+        <span class="text-sm font-medium text-primary">Student Stories</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight" style="font-family:'Playfair Display',serif">
+        What Our <span class="text-primary">Students</span> Say
+      </h2>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="soft-card rounded-2xl p-6 md:p-8">
+        <p class="italic mb-4">"I learned so much about mehndi art at Limra! The trainers are patient and the environment is so welcoming. Highly recommended!"</p>
+        <p class="text-sm font-semibold text-primary">— Rabia S.</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 md:p-8">
+        <p class="italic mb-4">"The stitching course helped me start my own tailoring business from home. Best decision I ever made!"</p>
+        <p class="text-sm font-semibold text-primary">— Amina K.</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 md:p-8">
+        <p class="italic mb-4">"My daughter loves the Quran classes here. The teacher is kind and makes learning so enjoyable for kids."</p>
+        <p class="text-sm font-semibold text-primary">— Sana M.</p>
+      </div>
+      <div class="soft-card rounded-2xl p-6 md:p-8">
+        <p class="italic mb-4">"The makeup course was amazing! I can now do professional bridal makeup for my friends and family. Thank you Limra!"</p>
+        <p class="text-sm font-semibold text-primary">— Nida R.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section class="py-16 md:py-24" style="background: oklch(0.97 0.015 80 / 0.5);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <span class="text-sm font-medium text-primary">About Us</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6" style="font-family:'Playfair Display',serif">
+        Empowering Women Through <span class="text-primary">Art &amp; Knowledge</span>
+      </h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Limra Courses is a local initiative founded with a vision to provide quality skill-based education for women and girls in a safe, comfortable, and supportive environment.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        From the intricate art of Mehndi to the precision of stitching, the creativity of makeup artistry, to the spiritual journey of Quran learning — we nurture talents and build confidence.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">500+</p><p class="text-xs text-muted-foreground">Students</p></div>
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">4</p><p class="text-xs text-muted-foreground">Courses</p></div>
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">5+</p><p class="text-xs text-muted-foreground">Years</p></div>
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">100%</p><p class="text-xs text-muted-foreground">Ladies Only</p></div>
+      </div>
+      <a href="./contact.html" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground glow-btn">Join Us Today →</a>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="space-y-4">
+        <div class="soft-card rounded-2xl p-4 bg-primary/5"><p class="text-sm font-medium text-primary mb-1">Our Mission</p><p class="text-xs text-muted-foreground">To empower women through creative skills and Islamic knowledge.</p></div>
+        <div class="soft-card rounded-2xl p-4" style="background: oklch(0.92 0.03 300 / 0.5);"><p class="text-sm font-medium text-lavender mb-1">Our Vision</p><p class="text-xs text-muted-foreground">A community where every woman is skilled and self-reliant.</p></div>
+      </div>
+      <div class="space-y-4 pt-8">
+        <div class="soft-card rounded-2xl p-4 bg-pink-soft"><p class="text-sm font-medium text-pink-warm mb-1">Values</p><p class="text-xs text-muted-foreground">Faith, creativity, sisterhood, and excellence.</p></div>
+        <div class="soft-card rounded-2xl p-4 bg-cream"><p class="text-sm font-medium text-gold mb-1">Promise</p><p class="text-xs text-muted-foreground">Personal attention and quality teaching for every student.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT / APPLY ============ -->
+<section class="py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4" style="font-family:'Playfair Display',serif">Apply <span class="text-primary">Now</span></h2>
+      <p class="text-muted-foreground max-w-2xl mx-auto">Fill in the form below and we'll get back to you with all the course details!</p>
+    </div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <form class="soft-card rounded-2xl p-6 md:p-8 space-y-5" onsubmit="event.preventDefault(); alert('Form is a static template — wire it up to your backend.');">
+        <div>
+          <label class="text-sm font-medium">Full Name *</label>
+          <input class="mt-1.5 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" placeholder="Your full name" required />
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label class="text-sm font-medium">Phone Number *</label>
+            <input class="mt-1.5 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" placeholder="+91 ..." required />
+          </div>
+          <div>
+            <label class="text-sm font-medium">Email (optional)</label>
+            <input type="email" class="mt-1.5 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" placeholder="you@email.com" />
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-medium">Interested Courses * (select at least one)</label>
+          <div class="mt-2 grid grid-cols-1 sm:grid-cols-2 gap-2">
+            <label class="flex items-center gap-2 rounded-lg border border-border p-2 cursor-pointer hover:bg-muted/40"><input type="checkbox" /><span class="text-sm">Mehndi Art</span></label>
+            <label class="flex items-center gap-2 rounded-lg border border-border p-2 cursor-pointer hover:bg-muted/40"><input type="checkbox" /><span class="text-sm">Stitching &amp; Tailoring</span></label>
+            <label class="flex items-center gap-2 rounded-lg border border-border p-2 cursor-pointer hover:bg-muted/40"><input type="checkbox" /><span class="text-sm">Makeup Artistry</span></label>
+            <label class="flex items-center gap-2 rounded-lg border border-border p-2 cursor-pointer hover:bg-muted/40"><input type="checkbox" /><span class="text-sm">Quran Learning</span></label>
+          </div>
+        </div>
+        <div>
+          <label class="text-sm font-medium">Message (optional)</label>
+          <textarea rows="4" class="mt-1.5 w-full rounded-lg border border-border bg-card px-3 py-2 text-sm" placeholder="Tell us a bit about yourself..."></textarea>
+        </div>
+        <button type="submit" class="w-full glow-btn rounded-full bg-primary text-primary-foreground py-3 font-semibold">Submit Application</button>
+      </form>
+
+      <div class="space-y-6">
+        <div class="soft-card rounded-2xl p-6">
+          <h3 class="text-lg font-bold mb-4">Contact Information</h3>
+          <div class="space-y-4 text-sm">
+            <div><p class="font-medium">Address</p><p class="text-muted-foreground">Near Malapally Masjid, Nizamabad Telangana</p></div>
+            <div><p class="font-medium">Phone</p><a href="tel:+919963860432" class="text-muted-foreground hover:text-primary">+91 99638 60432</a></div>
+            <div><p class="font-medium">Email</p><a href="mailto:support@limra.co.in" class="text-muted-foreground hover:text-primary">support@limra.co.in</a></div>
+            <div><p class="font-medium">Timings</p><p class="text-muted-foreground">Mon - Sat: 10:00 AM - 6:00 PM</p></div>
+          </div>
+        </div>
+        <div class="soft-card rounded-2xl overflow-hidden h-64">
+          <iframe title="Limra Location" class="w-full h-full" style="border:0" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d891.4960121105552!2d78.08173198903627!3d18.67182026949203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcddb197dbea06d%3A0x699c3b9c7017d590!2s9-18-223%2C%20Mujahed%20Nagar%2C%20Nizamabad%2C%20Telangana%20503001!5e0!3m2!1sen!2sin!4v1780590597316!5m2!1sen!2sin"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-border" style="background: oklch(0.96 0.025 350 / 0.5);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <span class="text-lg font-bold" style="font-family:'Playfair Display',serif">Limra Courses</span>
+      </div>
+      <p class="text-sm text-muted-foreground leading-relaxed">Empowering women and girls through creative arts and spiritual learning. Stitching, Mehndi, Makeup, and Quran courses designed for ladies.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">Quick Links</h4>
+      <div class="space-y-2 text-sm">
+        <a href="./index.html"    class="block text-muted-foreground hover:text-primary">Home</a>
+        <a href="./courses.html"  class="block text-muted-foreground hover:text-primary">Our Courses</a>
+        <a href="./trainers.html" class="block text-muted-foreground hover:text-primary">Trainers</a>
+        <a href="./about.html"    class="block text-muted-foreground hover:text-primary">About Us</a>
+        <a href="./contact.html"  class="block text-muted-foreground hover:text-primary">Contact / Apply</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">Contact</h4>
+      <div class="space-y-3 text-sm">
+        <a href="tel:+919963860432" class="block text-muted-foreground hover:text-primary">+91 99638 60432</a>
+        <a href="mailto:support@limra.co.in" class="block text-muted-foreground hover:text-primary">support@limra.co.in</a>
+        <p class="text-muted-foreground">Near Malapally Masjid, Nizamabad Telangana</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center pb-6 text-xs text-muted-foreground">Made with ✦ for Limra Courses</div>
+</footer>
+
+<!-- ============ WHATSAPP FAB ============ -->
+<a href="https://wa.me/919963860432?text=Hi" target="_blank" rel="noopener"
+   class="fixed bottom-24 md:bottom-6 right-6 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg hover:scale-110 transition-all"
+   style="background:#22c55e">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+</a>
+
+<!-- ============ BOTTOM NAV (mobile) ============ -->
+<nav class="md:hidden fixed bottom-0 inset-x-0 z-50 border-t border-border safe-bottom" style="background: oklch(0.98 0.01 350 / 0.95); backdrop-filter: blur(14px);">
+  <ul class="grid grid-cols-3">
+    <li><a href="./index.html"   class="flex flex-col items-center justify-center gap-1 py-2.5 text-[11px] font-medium text-primary">
+      <span class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-primary/15">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+      </span>Home</a></li>
+    <li><a href="./contact.html" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[11px] font-medium text-muted-foreground">
+      <span class="inline-flex items-center justify-center h-9 w-9 rounded-full">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      </span>Apply</a></li>
+    <li><a href="#"              class="flex flex-col items-center justify-center gap-1 py-2.5 text-[11px] font-medium text-muted-foreground">
+      <span class="inline-flex items-center justify-center h-9 w-9 rounded-full">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      </span>Login</a></li>
+  </ul>
+</nav>
+
+<script>
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('mobileMenu')?.classList.toggle('hidden');
+  });
+</script>
+</body>
+</html>

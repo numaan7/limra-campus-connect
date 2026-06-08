@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>About — Limra</title>
+<meta name="description" content="About Limra Courses — empowering women through art & knowledge."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>tailwind.config={theme:{extend:{colors:{background:'var(--background)',foreground:'var(--foreground)',card:'var(--card)',primary:'var(--primary)','primary-foreground':'var(--primary-foreground)',muted:'var(--muted)','muted-foreground':'var(--muted-foreground)',border:'var(--border)',destructive:'var(--destructive)','pink-soft':'var(--pink-soft)','pink-warm':'var(--pink-warm)',lavender:'var(--lavender)','lavender-soft':'var(--lavender-soft)',cream:'var(--cream)',gold:'var(--gold)'}}}}</script>
+<link rel="stylesheet" href="./css/styles.css"/>
+</head><body>
+<!-- ============ NAVBAR ============ -->
+<nav class="sticky top-0 z-50 glass border-b border-border">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="flex h-16 items-center justify-between">
+      <a href="./index.html" class="flex items-center gap-2">
+        <svg viewBox="0 0 24 24" class="h-6 w-6" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <span class="text-xl font-bold tracking-tight" style="font-family:'Playfair Display',serif">Limra</span>
+      </a>
+      <div class="hidden md:flex items-center gap-6">
+        <a href="./index.html"    class="text-sm font-medium text-muted-foreground hover:text-primary">Home</a>
+        <a href="./courses.html"  class="text-sm font-medium text-muted-foreground hover:text-primary">Courses</a>
+        <a href="./trainers.html" class="text-sm font-medium text-muted-foreground hover:text-primary">Trainers</a>
+        <a href="./about.html"    class="text-sm font-medium text-primary">About</a>
+        <a href="./contact.html"  class="text-sm font-medium text-muted-foreground hover:text-primary">Contact</a>
+        <a href="#"               class="inline-flex items-center justify-center rounded-full bg-primary px-5 py-2 text-sm font-semibold text-primary-foreground shadow-md hover:shadow-lg transition-all">Login</a>
+      </div>
+      <button id="navToggle" class="md:hidden p-2 rounded-lg hover:bg-muted" aria-label="Menu">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="md:hidden hidden border-t border-border glass">
+    <div class="px-4 py-3 space-y-1">
+      <a href="./index.html"    class="block rounded-lg px-3 py-2 text-sm font-medium bg-primary/10 text-muted-foreground hover:text-primary">Home</a>
+      <a href="./courses.html"  class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Courses</a>
+      <a href="./trainers.html" class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Trainers</a>
+      <a href="./about.html"    class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">About</a>
+      <a href="./contact.html"  class="block rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted">Contact</a>
+      <a href="#" class="block rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground text-center mt-2">Login</a>
+    </div>
+  </div>
+</nav>
+
+
+<section class="py-14 md:py-20 border-b border-border" style="background:linear-gradient(to bottom, oklch(0.96 0.025 350 / 0.5), var(--background));">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight" style="font-family:'Playfair Display',serif">About Limra</h1>
+    <p class="text-muted-foreground mt-4 max-w-2xl mx-auto">A local initiative providing quality skill-based education for women and girls.</p>
+  </div>
+</section>
+<!-- ============ ABOUT ============ -->
+<section class="py-16 md:py-24" style="background: oklch(0.97 0.015 80 / 0.5);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div>
+      <div class="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4">
+        <svg viewBox="0 0 24 24" class="h-4 w-4" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <span class="text-sm font-medium text-primary">About Us</span>
+      </div>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6" style="font-family:'Playfair Display',serif">
+        Empowering Women Through <span class="text-primary">Art &amp; Knowledge</span>
+      </h2>
+      <p class="text-muted-foreground leading-relaxed mb-6">
+        Limra Courses is a local initiative founded with a vision to provide quality skill-based education for women and girls in a safe, comfortable, and supportive environment.
+      </p>
+      <p class="text-muted-foreground leading-relaxed mb-8">
+        From the intricate art of Mehndi to the precision of stitching, the creativity of makeup artistry, to the spiritual journey of Quran learning — we nurture talents and build confidence.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8">
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">500+</p><p class="text-xs text-muted-foreground">Students</p></div>
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">4</p><p class="text-xs text-muted-foreground">Courses</p></div>
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">5+</p><p class="text-xs text-muted-foreground">Years</p></div>
+        <div class="soft-card rounded-xl p-4 text-center"><p class="text-xl font-bold">100%</p><p class="text-xs text-muted-foreground">Ladies Only</p></div>
+      </div>
+      <a href="./contact.html" class="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground glow-btn">Join Us Today →</a>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="space-y-4">
+        <div class="soft-card rounded-2xl p-4 bg-primary/5"><p class="text-sm font-medium text-primary mb-1">Our Mission</p><p class="text-xs text-muted-foreground">To empower women through creative skills and Islamic knowledge.</p></div>
+        <div class="soft-card rounded-2xl p-4" style="background: oklch(0.92 0.03 300 / 0.5);"><p class="text-sm font-medium text-lavender mb-1">Our Vision</p><p class="text-xs text-muted-foreground">A community where every woman is skilled and self-reliant.</p></div>
+      </div>
+      <div class="space-y-4 pt-8">
+        <div class="soft-card rounded-2xl p-4 bg-pink-soft"><p class="text-sm font-medium text-pink-warm mb-1">Values</p><p class="text-xs text-muted-foreground">Faith, creativity, sisterhood, and excellence.</p></div>
+        <div class="soft-card rounded-2xl p-4 bg-cream"><p class="text-sm font-medium text-gold mb-1">Promise</p><p class="text-xs text-muted-foreground">Personal attention and quality teaching for every student.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer class="border-t border-border" style="background: oklch(0.96 0.025 350 / 0.5);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div>
+      <div class="flex items-center gap-2 mb-4">
+        <svg viewBox="0 0 24 24" class="h-5 w-5" fill="var(--primary)"><path d="M12 2l2.39 5.96L20.5 9l-4.55 4.04L17.78 20 12 16.77 6.22 20l1.83-6.96L3.5 9l6.11-1.04L12 2z"/></svg>
+        <span class="text-lg font-bold" style="font-family:'Playfair Display',serif">Limra Courses</span>
+      </div>
+      <p class="text-sm text-muted-foreground leading-relaxed">Empowering women and girls through creative arts and spiritual learning. Stitching, Mehndi, Makeup, and Quran courses designed for ladies.</p>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">Quick Links</h4>
+      <div class="space-y-2 text-sm">
+        <a href="./index.html"    class="block text-muted-foreground hover:text-primary">Home</a>
+        <a href="./courses.html"  class="block text-muted-foreground hover:text-primary">Our Courses</a>
+        <a href="./trainers.html" class="block text-muted-foreground hover:text-primary">Trainers</a>
+        <a href="./about.html"    class="block text-muted-foreground hover:text-primary">About Us</a>
+        <a href="./contact.html"  class="block text-muted-foreground hover:text-primary">Contact / Apply</a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-semibold mb-4 text-sm uppercase tracking-wider text-muted-foreground">Contact</h4>
+      <div class="space-y-3 text-sm">
+        <a href="tel:+919963860432" class="block text-muted-foreground hover:text-primary">+91 99638 60432</a>
+        <a href="mailto:support@limra.co.in" class="block text-muted-foreground hover:text-primary">support@limra.co.in</a>
+        <p class="text-muted-foreground">Near Malapally Masjid, Nizamabad Telangana</p>
+      </div>
+    </div>
+  </div>
+  <div class="text-center pb-6 text-xs text-muted-foreground">Made with ✦ for Limra Courses</div>
+</footer>
+
+
+<!-- ============ WHATSAPP FAB ============ -->
+<a href="https://wa.me/919963860432?text=Hi" target="_blank" rel="noopener"
+   class="fixed bottom-24 md:bottom-6 right-6 z-50 inline-flex items-center justify-center w-14 h-14 rounded-full text-white shadow-lg hover:scale-110 transition-all"
+   style="background:#22c55e">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"/></svg>
+</a>
+
+
+<!-- ============ BOTTOM NAV (mobile) ============ -->
+<nav class="md:hidden fixed bottom-0 inset-x-0 z-50 border-t border-border safe-bottom" style="background: oklch(0.98 0.01 350 / 0.95); backdrop-filter: blur(14px);">
+  <ul class="grid grid-cols-3">
+    <li><a href="./index.html"   class="flex flex-col items-center justify-center gap-1 py-2.5 text-[11px] font-medium text-primary">
+      <span class="inline-flex items-center justify-center h-9 w-9 rounded-full bg-primary/15">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l9-9 9 9"/><path d="M5 10v10h14V10"/></svg>
+      </span>Home</a></li>
+    <li><a href="./contact.html" class="flex flex-col items-center justify-center gap-1 py-2.5 text-[11px] font-medium text-muted-foreground">
+      <span class="inline-flex items-center justify-center h-9 w-9 rounded-full">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 014 4v14a3 3 0 00-3-3H2zM22 3h-6a4 4 0 00-4 4v14a3 3 0 013-3h7z"/></svg>
+      </span>Apply</a></li>
+    <li><a href="#"              class="flex flex-col items-center justify-center gap-1 py-2.5 text-[11px] font-medium text-muted-foreground">
+      <span class="inline-flex items-center justify-center h-9 w-9 rounded-full">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+      </span>Login</a></li>
+  </ul>
+</nav>
+
+<script>
+  document.getElementById('navToggle')?.addEventListener('click', () => {
+    document.getElementById('mobileMenu')?.classList.toggle('hidden');
+  });
+</script>
+
+<script>document.getElementById('navToggle')?.addEventListener('click',()=>document.getElementById('mobileMenu')?.classList.toggle('hidden'));</script>
+</body></html>
